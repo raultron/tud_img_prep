@@ -1,7 +1,8 @@
 #ifndef IMGPREPNODE_HPP
 #define IMGPREPNODE_HPP
 
-# With parts of code taken from https://github.com/omwdunkley/ollieRosTools.git
+/// Some parts of this package were modified from:
+/// https://github.com/omwdunkley/ollieRosTools.git
 
 #include "ros/ros.h"
 #include <dynamic_reconfigure/server.h>

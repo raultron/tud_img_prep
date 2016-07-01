@@ -21,7 +21,7 @@ All the options can be changed in real time using Dynamic Reconfigure.
 Clone repository in your catkin worskspace:
 
     cd ~/catkin_ws/src
-    git clone git@github.com:raultron/tud_img_prep.git
+    git clone https://github.com/raultron/tud_img_prep.git
 
 Compile using catkin:
 

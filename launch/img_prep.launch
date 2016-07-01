@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Change this values according to your camera-->
+  <node name="cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
+    <param name="video_device" value="/dev/video0" />
+    <param name="framerate" value="25"/>
+    <param name="pixel_format" value="yuyv" />
+    <param name="image_width" value="720" />
+    <param name="image_height" value="576" />
+    <param name="camera_frame_id" value="cam" />
+    <param name="camera_name" value= "cam"/>
+    <param name="camera_info_url" value= "file:///YOUR_PATH/camera_info/cam.yaml"/>
+  </node>
+
+  <node pkg="tud_img_prep" type="img_prep" name="img_prep" output="screen">
+  <!-- camera name-->
+  <param name="camera_namespace" value="/cam" />
+  </node>
+</launch>

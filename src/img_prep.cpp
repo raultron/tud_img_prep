@@ -12,12 +12,12 @@ int main(int argc, char* argv[]) {
   ros::init(argc, argv, "img_prep");  // Name of the node
   ImgPrepNode Node;
 
-  // int32_t looprate = 1000; //hz
-  // ros::Rate loop_rate(looprate);
+  int32_t looprate = 1000; //hz
+  ros::Rate loop_rate(looprate);
 
   // ros::spin();
   while (Node.nh.ok()) {
     ros::spinOnce();
-    // loop_rate.sleep();
+    loop_rate.sleep();
   }
 }

@@ -109,7 +109,7 @@ void ImgPrepNode::imageCb(const sensor_msgs::ImageConstPtr& input_image_msg)
     // Compute running average of processing time
     timeAvg_ = timeAvg_ * timeAlpha_ +
                (1.0 - timeAlpha_) * (ros::WallTime::now() - time_s0).toSec();
-    ROS_INFO_THROTTLE(1, "Processing TimeXYZ: %.1fms", timeAvg_ * 1000.);
+    ROS_DEBUG_THROTTLE(1, "Processing TimeXYZ: %.1fms", timeAvg_ * 1000.);
   }
   else
   {
@@ -126,7 +126,7 @@ void ImgPrepNode::cameraInfoCb(const sensor_msgs::CameraInfo& cam_info)
 void ImgPrepNode::dynamicReconfigureCb(
     tud_img_prep::dynamic_param_configConfig& config, uint32_t level)
 {
-  ROS_INFO("Reconfigure Request X");
+  ROS_DEBUG("Reconfigure Request");
   /// Turn node on and off when settings change
   if (node_on_ != config.node_on)
   {

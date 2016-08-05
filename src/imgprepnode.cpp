@@ -26,16 +26,16 @@ ImgPrepNode::ImgPrepNode()
   ros::NodeHandle params("~");
   // Topic Parameters
 
-  std::string camera_namespace;
+  std::string camera_namespace, image;
 
   params.param<std::string>("camera_namespace", camera_namespace, "/cam");
+  params.param<std::string>("image", image, "image_raw");
 
-  cam_img_sub_ = m_image_transport.subscribe(camera_namespace + "/image_raw", 1,
+  cam_img_sub_ = m_image_transport.subscribe(camera_namespace + "/" + image, 1,
                                              &ImgPrepNode::imageCb, this);
   cam_info_sub_ = nh.subscribe(camera_namespace + "/camera_info", 1,
                                &ImgPrepNode::cameraInfoCb, this);
-  img_prep_pub_ = m_image_transport.advertiseCamera(
-      "prep/" + camera_namespace + "/image_raw", 1);
+  img_prep_pub_ = m_image_transport.advertiseCamera("/prep" + camera_namespace + "/" + image, 1);
 
   // Dynamic parameter reconfigure
   dynamic_reconfigure::Server<
